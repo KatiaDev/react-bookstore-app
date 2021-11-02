@@ -1,21 +1,15 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import { Route, Switch } from "react-router";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import ShoppingCart from "./pages/ShoppingCart";
 import Item from "./pages/Item";
 import ItemsList from "./pages/ItemsList";
+import { BooksContext } from "./contexts/booksContext";
+import { useContext } from "react";
 
 function App() {
-  const [books, setBooks] = useState([]);
-  console.log("books: ", books);
-
-  useEffect(() => {
-    axios("https://api.itbook.store/1.0/search/react/2").then((response) =>
-      setBooks(response.data.books)
-    );
-  }, []);
+  const { books } = useContext(BooksContext);
 
   return (
     <div className="App">

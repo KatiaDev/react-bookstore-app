@@ -1,7 +1,10 @@
 import React from "react";
 import { useParams } from "react-router";
+import { BooksContext } from "../contexts/booksContext";
+import { useContext } from "react";
 
 const Item = ({ books }) => {
+  const { addItem } = useContext(BooksContext);
   const params = useParams();
 
   const foundBook = books.find((book) => {
@@ -25,10 +28,7 @@ const Item = ({ books }) => {
           <h3>{foundBook.price}</h3>
           <p>{foundBook.subtitle}</p>
 
-          <button
-            onClick={() => foundBook.addItem(foundBook.product)}
-            className="product-button"
-          >
+          <button onClick={() => addItem(foundBook)} className="product-button">
             Add to cart
           </button>
         </div>
