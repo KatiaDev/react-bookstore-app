@@ -1,12 +1,12 @@
 import React from "react";
 import CartItem from "../components/CartItem";
 
-const ShoppingCart = ({ books }) => {
+const ShoppingCart = () => {
   return (
     <div className="shopping-cart">
-      {books.map((item) => (
-        <CartItem key={item.isbn13} {...item} />
-      ))}
+      {/*
+        <CartItem  />
+     */}
 
       <div className="shopping-cart__checkout">
         <p>Total: $</p>
